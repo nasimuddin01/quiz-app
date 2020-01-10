@@ -1,6 +1,7 @@
 JavaScript Quiz App
 
 Built with: HTML, CSS & JavaScript.
+
 Feature:
 
     Timing for every question
