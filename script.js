@@ -5,13 +5,14 @@ const questionElement = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answer-buttons');
 const score = document.getElementById('score');
 const time = document.getElementById('time');
-const welcome = document.querySelector('.welcome');
+const welcome = document.querySelector('#welcome');
+const hurray = document.querySelector('#hurray');
 
 let currentQuestionIndex = 0;
 let points;
 let perQuestionPoint = 1;
 let timeCounter = 0;
-let givenTime = 15;//second
+let givenTime = 15; //second
 
 // start button event listener
 startButton.addEventListener('click', startGame);
@@ -24,6 +25,7 @@ function startGame() {
   questionContainer.classList.remove('hide');
   currentQuestionIndex = 0;
   welcome.classList.add("hide"); //hiding welcome section
+  hurray.classList.add('hide');
   setNextQuestion()
   timer()
 }
@@ -58,6 +60,7 @@ function showQuestion(question) {
     const button = document.createElement('button')
     button.innerText = answer.text
     button.classList.add('btn')
+    button.classList.add('btn-primary')
     if (answer.correct) {
       button.dataset.correct = answer.correct
     }
@@ -79,8 +82,8 @@ function selectAnswer(e) {
   const correct = selectedButton.dataset.correct;
   console.log(points);
   if (correct) {
-    points = points + perQuestionPoint*(givenTime - timeCounter);
-  }else{
+    points = points + perQuestionPoint * (givenTime - timeCounter);
+  } else {
     points = points - perQuestionPoint
   }
   if (currentQuestionIndex < questions.length) {
@@ -98,7 +101,8 @@ function result() {
   questionContainer.classList.add("hide");
   startButton.innerText = 'Restart';
   startButton.classList.remove('hide');
-  time.classList.add("hide");
+  time.classList.add('hide');
+  hurray.classList.remove('hide');
 }
 
 function clearStatusClass(element) {
@@ -108,7 +112,7 @@ function clearStatusClass(element) {
 
 // question section
 const questions = [{
-    question: 'What is 2 + 2?',
+    question: 'What is the output of 2 + 2?',
     answers: [{
         text: '4',
         correct: true
@@ -116,51 +120,59 @@ const questions = [{
       {
         text: '22',
         correct: false
+      },
+      {
+        text: '8',
+        correct: false
+      },
+      {
+        text: '20',
+        correct: false
       }
     ]
   },
   {
-    question: 'Who is the most futuristic human in the world?',
+    question: 'What is the root of 144?',
     answers: [{
-        text: 'Elon Musk',
+        text: '12',
         correct: true
       },
       {
-        text: 'Bill Gates',
+        text: '15',
         correct: false
       },
       {
-        text: 'Jeff Bezos',
+        text: '21',
         correct: false
       },
       {
-        text: 'Larry Page',
+        text: '40',
         correct: false
       }
     ]
   },
   {
-    question: 'Who is the current president of USA?',
+    question: 'What is the cube root of 27?',
     answers: [{
-        text: 'Obama',
+        text: '4',
         correct: false
       },
       {
-        text: 'Hilary Clinton',
+        text: '9',
         correct: false
       },
       {
-        text: 'Donuld Trump',
+        text: '3',
         correct: true
       },
       {
-        text: 'Bill Clinton',
+        text: '2',
         correct: false
       }
     ]
   },
   {
-    question: 'What is 4 * 2?',
+    question: 'What is the output of 4 * 2?',
     answers: [{
         text: '6',
         correct: false
@@ -168,6 +180,14 @@ const questions = [{
       {
         text: '8',
         correct: true
+      },
+      {
+        text: '7',
+        correct: false
+      },
+      {
+        text: '9',
+        correct: false
       }
     ]
   }
