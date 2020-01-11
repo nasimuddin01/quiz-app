@@ -20,7 +20,8 @@ startButton.addEventListener('click', startGame);
 function startGame() {
   points = 0; //resetting points
   startButton.classList.add('hide');
-  time.classList.remove("hide");//showing time
+  startButton.classList.remove('animated');
+  time.classList.remove("hide"); //showing time
   score.classList.add("hide"); //hiding score
   questionContainer.classList.remove('hide');
   currentQuestionIndex = 0;
@@ -49,11 +50,11 @@ function timer() {
     } else {
       timeCounter++;
       time.innerText = `Time: ${ givenTime - timeCounter} second`;
-      if(timeCounter >= 10){
+      if (timeCounter >= 10) {
         time.style.color = "red";
-      }else if(timeCounter>=5){
+      } else if (timeCounter >= 5) {
         time.style.color = "orange";
-      }else{
+      } else {
         time.style.color = "black";
       }
     }
@@ -96,12 +97,12 @@ function selectAnswer(e) {
   } else {
     points = points - perQuestionPoint
   }
-  if (currentQuestionIndex < questions.length) {
+  if (currentQuestionIndex >= questions.length-1) {
+    result();
+  } else {
     timeCounter = 0;
     currentQuestionIndex++;
     setNextQuestion()
-  } else {
-    result();
   }
 }
 
@@ -111,6 +112,7 @@ function result() {
   questionContainer.classList.add("hide");
   startButton.innerText = 'Restart';
   startButton.classList.remove('hide');
+  startButton.classList.add('animated');
   time.classList.add('hide');
   hurray.classList.remove('hide');
   hurray.classList.add('animated');
