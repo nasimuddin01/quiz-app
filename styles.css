@@ -15,7 +15,6 @@
   width: 25rem;
   height: 30rem;
   text-align: center;
-  border-radius: 8px !important;
   box-shadow: 0 3px 10px gray, 0 -20px 2px -10px #f38181, 0 -40px 3px -20px #eaffd0;
   display: flex;
   justify-content: center;
