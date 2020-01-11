@@ -20,7 +20,7 @@ startButton.addEventListener('click', startGame);
 function startGame() {
   points = 0; //resetting points
   startButton.classList.add('hide');
-  time.classList.remove("hide"); //showing time
+  time.classList.remove("hide");//showing time
   score.classList.add("hide"); //hiding score
   questionContainer.classList.remove('hide');
   currentQuestionIndex = 0;
@@ -43,18 +43,27 @@ function timer() {
     }
     if (timeCounter == givenTime) {
       resetState()
-      showQuestion(questions[currentQuestionIndex])
       currentQuestionIndex++
+      showQuestion(questions[currentQuestionIndex])
       console.log("timeout")
     } else {
       timeCounter++;
       time.innerText = `Time: ${ givenTime - timeCounter} second`;
+      if(timeCounter >= 10){
+        time.style.color = "red";
+      }else if(timeCounter>=5){
+        time.style.color = "orange";
+      }else{
+        time.style.color = "black";
+      }
     }
   }, 1000)
 }
 
 
+
 function showQuestion(question) {
+  questionContainer.classList.add('animated');
   questionElement.innerText = question.question
   question.answers.forEach(answer => {
     const button = document.createElement('button')
@@ -72,6 +81,8 @@ function showQuestion(question) {
 function resetState() {
   timeCounter = 0;
   clearStatusClass(document.body);
+  hurray.classList.remove('animated');
+  score.classList.remove('animated');
   while (answerButtonsElement.firstChild) {
     answerButtonsElement.removeChild(answerButtonsElement.firstChild)
   }
@@ -80,7 +91,6 @@ function resetState() {
 function selectAnswer(e) {
   const selectedButton = e.target;
   const correct = selectedButton.dataset.correct;
-  console.log(points);
   if (correct) {
     points = points + perQuestionPoint * (givenTime - timeCounter);
   } else {
@@ -103,12 +113,15 @@ function result() {
   startButton.classList.remove('hide');
   time.classList.add('hide');
   hurray.classList.remove('hide');
+  hurray.classList.add('animated');
+  score.classList.add('animated');
 }
 
 function clearStatusClass(element) {
   element.classList.remove('correct')
   element.classList.remove('wrong')
 }
+
 
 // question section
 const questions = [{

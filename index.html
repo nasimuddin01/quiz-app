@@ -6,19 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <script defer src="script.js"></script>
   <title>JavaScript Quiz App</title>
 </head>
 
 <body>
-  <div class="container-fluid rounded">
+  <div class="container-fluid rounded fadeIn animated">
     <div class="card p-4">
-      <h1 id="hurray" class="icon hide">🎉</h1>
-      <h2 id="score" class="hide mb-3">0</h2>
+      <h1 id="hurray" class="icon fadeIn hide">🎉</h1>
+      <h2 id="score" class="hide fadeIn mb-3">0</h2>
+
       <h4 id="time" class="hide">Time: 15 second</h4>
 
-      <div id="question-container" class="hide">
+      <div id="question-container" class="hide fadeIn">
         <h3 id="question">Question</h3>
         <div id="answer-buttons" class="btn-grid">
           <!-- here option will be added dynamically by javascript -->
