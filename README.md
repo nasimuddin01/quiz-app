@@ -1,6 +1,16 @@
 JavaScript Quiz App
 
-Built with: HTML, CSS & JavaScript.
+Built with:
+
+          HTML
+
+          CSS
+
+          Bootstrap
+
+          Animate.css &
+
+          JavaScript.
 
 Feature:
 
