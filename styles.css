@@ -7,15 +7,16 @@
   display: flex;
   align-items: center !important;
   justify-content: center;
-  background-color: #004445 !important;
+  background-color: #fce38a !important;
   height: 100vh;
 }
 
 .card {
   width: 25rem;
-  height:22rem;
+  height: 30rem;
   text-align: center;
-  box-shadow:0 3px 4px gray;
+  border-radius: 8px !important;
+  box-shadow: 0 3px 10px gray, 0 -20px 2px -10px #f38181, 0 -40px 3px -20px #eaffd0;
   display: flex;
   justify-content: center;
   align-items: center;
